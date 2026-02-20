@@ -5,15 +5,25 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return numbers;
-}
+    //let fewerNumbers: number[] = [...numbers];
+    let fewerNumbers: number[] = numbers.filter(
+        (edges: number): boolean =>
+            edges == numbers[0] || edges == numbers[numbers.length - 1],
+    );
+    if (fewerNumbers.length == 1) fewerNumbers.splice(1, 0, fewerNumbers[0]);
+    if (fewerNumbers.length == 0) fewerNumbers = [];
 
+    return fewerNumbers;
+}
 /**
  * Consume an array of numbers, and return a new array where each
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    return numbers;
+    const tripled: number[] = numbers.map(
+        (number: number): number => number * 3,
+    );
+    return tripled;
 }
 
 /**
