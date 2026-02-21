@@ -8,10 +8,10 @@ export function bookEndList(numbers: number[]): number[] {
     //let fewerNumbers: number[] = [...numbers];
     let fewerNumbers: number[] = numbers.filter(
         (edges: number): boolean =>
-            edges == numbers[0] || edges == numbers[numbers.length - 1],
+            edges === numbers[0] || edges === numbers[numbers.length - 1],
     );
-    if (fewerNumbers.length == 1) fewerNumbers.splice(1, 0, fewerNumbers[0]);
-    if (fewerNumbers.length == 0) fewerNumbers = [];
+    if (fewerNumbers.length === 1) fewerNumbers.splice(1, 0, fewerNumbers[0]);
+    if (fewerNumbers.length === 0) fewerNumbers = [];
 
     return fewerNumbers;
 }
@@ -62,8 +62,12 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    const toUpper = messages.map();
-    return [];
+    const toShout: string[] = messages
+        .filter((message) => !message.endsWith("?"))
+        .map((message: string): string =>
+            message.endsWith("!") ? message.toUpperCase() : message,
+        );
+    return toShout;
 };
 
 /**
@@ -71,7 +75,11 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    let shortWordCounter: number = 0;
+    words.map((word) =>
+        word.length < 4 ? shortWordCounter++ : shortWordCounter,
+    );
+    return shortWordCounter;
 }
 
 /**
