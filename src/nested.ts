@@ -67,13 +67,13 @@ export function getNames(questions: Question[]): string[] {
  * Consumes an array of questions and returns the sum total of all their points added together.
  */
 export function sumPoints(questions: Question[]): number {
-    const summedPoints: number = questions
+    return questions
         .map((question: Question): number => question.points)
         .reduce(
             (prevVal: number, currVal: number): number => prevVal + currVal,
             0,
         );
-    return summedPoints;
+    //return summedPoints;
 }
 
 /***
@@ -84,7 +84,7 @@ export function sumPublishedPoints(questions: Question[]): number {
         .filter((question: Question): boolean => question.published)
         .map((question) => question.points)
         .reduce(
-            (prevVal: number, currVal: number): number => prevVal + currVal,
+            (totalVal: number, currVal: number): number => totalVal + currVal,
             0,
         );
     return publishedOnly;
