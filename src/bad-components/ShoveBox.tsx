@@ -11,7 +11,7 @@ function ShoveBoxButton({
     return (
         <Button
             onClick={() => {
-                setPosition(4 + position);
+                setPosition(position + 4);
             }}
         >
             Shove the Box
