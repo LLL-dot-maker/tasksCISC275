@@ -5,17 +5,17 @@ export function CheckAnswer({
 }: {
     expectedAnswer: string;
 }): React.JSX.Element {
-    const [givenAnswer, setGivenAnswer] = useState<string>("");
+    const [answer, setAnswer] = useState<string>("");
     return (
         <div>
             <h3>Check Answer</h3>
             <input
-                value={givenAnswer}
+                value={answer}
                 onChange={(event) => {
-                    setGivenAnswer(event.target.value);
+                    setAnswer(event.target.value);
                 }}
             ></input>
-            <span>{givenAnswer === expectedAnswer ? "✔️" : "❌"}</span>
+            <span>{answer === expectedAnswer ? "✔️" : "❌"}</span>
         </div>
     );
 }
