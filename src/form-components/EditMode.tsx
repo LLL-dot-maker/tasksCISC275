@@ -36,11 +36,11 @@ export function EditMode(): React.JSX.Element {
                         }}
                     ></Form.Check>
                 </div>
-            :   <span>
+            :   <div>
                     {isStudent ?
                         <p>{name} is a student</p>
                     :   <p>{name} is not a student</p>}
-                </span>
+                </div>
             }
         </div>
     );
